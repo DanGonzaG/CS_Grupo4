@@ -2,18 +2,22 @@ package cs_g4_pfinal;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
-
+//////JFRAME Menu//////////////////////////
+import cs_g4_pfinal.frm_MenuPrincipal;
+///////////////////////////////////////
 public class Principal {
 
     
     public static void main(String[] args) {
-        
+        ///////JFRAME MENU /////////
+        frm_MenuPrincipal p = new frm_MenuPrincipal();
+        ///////////////////////////
     }
     
     
     
     
+    //////////////////Prototipo ArrayList Marcas/////////////////////////////////////////////////////////////////////////////////////////////////
     public void ArrayListaMarcas(){
         ArrayList<String> lista = new ArrayList<String>(); // Creamos el ArrayList
 
@@ -34,4 +38,5 @@ public class Principal {
         // Mostramos el contenido del ArrayList en un cuadro de diálogo
         JOptionPane.showMessageDialog(null, mensaje);
     }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
