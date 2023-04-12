@@ -2,33 +2,19 @@ package cs_g4_pfinal;
 
 public class MarcadeProducto extends Producto {
 
-    private String NombreMarca;
+    private String marca;
 
-    public MarcadeProducto() {
-    }
-
-    public MarcadeProducto(String NombreMarca, int id, int Cantidad, double Precio, String Nombre) {
-        super(id, Cantidad, Precio, Nombre);
-        this.NombreMarca = NombreMarca;
+    public MarcadeProducto(String marca, int id, String name, int cantidad, double Precio) {
+        super(id, name, cantidad, Precio);
+        this.marca = marca;
     }
 
-    public String getNombreMarca() {
-        return NombreMarca;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setNombreMarca(String NombreMarca) {
-        this.NombreMarca = NombreMarca;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
-
-    public String Descripcion() {
-        return NombreMarca;
-    }
-    
-    
-    @Override
-    public String toString() {
-        return super.toString() + "MarcadeProducto" + "NombreMarca=" + NombreMarca ;
-    }
-    
-    
 }
+

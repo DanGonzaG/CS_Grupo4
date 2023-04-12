@@ -4,20 +4,20 @@ public class Producto implements InterfaceBodega {
 ////////////// Atributos de  Producto//////////////////////////////////////////////
 
     private int id;
-    private int Cantidad;
+    private String name;
+    private int cantidad;
     private double Precio;
-    private String Nombre;
 
 ///////////// Constructor Vacio //////////////////////////////////////////////
     public Producto() {
     }
 
 ///////////// Constructor Lleno //////////////////////////////////////////////
-    public Producto(int id, int Cantidad, double Precio, String Nombre) {
+    public Producto(int id, String name, int cantidad, double Precio) {
         this.id = id;
-        this.Cantidad = Cantidad;
+        this.name = name;
+        this.cantidad = cantidad;
         this.Precio = Precio;
-        this.Nombre = Nombre;
     }
 /////////////// getters y setters //////////////////////////////////////////////
 
@@ -29,12 +29,20 @@ public class Producto implements InterfaceBodega {
         this.id = id;
     }
 
-    public int getCantidad() {
-        return Cantidad;
+    public String getName() {
+        return name;
     }
 
-    public void setCantidad(int Cantidad) {
-        this.Cantidad = Cantidad;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public double getPrecio() {
@@ -45,25 +53,17 @@ public class Producto implements InterfaceBodega {
         this.Precio = Precio;
     }
 
-    public String getNombre() {
-        return Nombre;
-    }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
-    }
 
 ////////////////// Metodos Abstractos Vacios //////////////////////////////////////////////
     public String Descripcion() {
-        return Nombre;
+        return name;
     }
 
    
 
 //////////////// ToString//////////////////////////////////////////////
-    @Override
-    public String toString() {
-        return "Producto{" + "id=" + id + ", Cantidad=" + Cantidad + ", Precio=" + Precio + ", Nombre=" + Nombre + '}';
-    }
+    
 
 }
+

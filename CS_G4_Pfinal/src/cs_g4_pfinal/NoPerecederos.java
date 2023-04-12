@@ -4,38 +4,19 @@ import jdk.jfr.Description;
 
 public class NoPerecederos extends MarcadeProducto {
 
-    private boolean NoPercederos;
+    private boolean noperecedero;
 
-    public NoPerecederos() {
+    public NoPerecederos(boolean noperecedero, String marca, int id, String name, int cantidad, double Precio) {
+        super(marca, id, name, cantidad, Precio);
+        this.noperecedero = noperecedero;
     }
 
-    public NoPerecederos(boolean NoPercederos, String NombreMarca, int id, int Cantidad, double Precio, String Nombre) {
-        super(NombreMarca, id, Cantidad, Precio, Nombre);
-        this.NoPercederos = NoPercederos;
+    public boolean isNoperecedero() {
+        return noperecedero;
     }
 
-    public boolean isPercederos() {
-        return NoPercederos;
+    public void setNoperecedero(boolean noperecedero) {
+        this.noperecedero = noperecedero;
     }
 
-    public void setPercederos(boolean Percederos) {
-        this.NoPercederos = Percederos;
-    }
-
-    public String Descripcion() {
-        String DescripcionMensaje="";
-        if ( NoPercederos == false) {
-            DescripcionMensaje = "Percederos";
-        }else{
-            DescripcionMensaje = "No Percederos";
-        }
-        return DescripcionMensaje;
-    }
-
-    
-
-    @Override
-    public String toString() {
-        return super.toString() + Descripcion();
-    }
 }
