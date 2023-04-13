@@ -2,41 +2,57 @@ package cs_g4_pfinal;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-//////JFRAME Menu//////////////////////////
 import cs_g4_pfinal.frm_MenuPrincipal;
-///////////////////////////////////////
+
+
 public class Principal {
 
     
     public static void main(String[] args) {
-        ///////JFRAME MENU /////////
-        frm_MenuPrincipal p = new frm_MenuPrincipal();
-        ///////////////////////////
-    }
+        ArrayList<String> marcas = new ArrayList<>();
+        ArrayList<Producto> listaProductos = new ArrayList<>();
+//        ArrayList<NoPerecederos> listNoP = new ArrayList<>();
+//        ArrayList<Perecederos> listP = new ArrayList<>();
         
-    
-    
-    
-    //////////////////Prototipo ArrayList Marcas/////////////////////////////////////////////////////////////////////////////////////////////////
-    public void ArrayListaMarcas(){
-        ArrayList<String> lista = new ArrayList<String>(); // Creamos el ArrayList
-
-        String input = JOptionPane.showInputDialog("Ingrese un string o la palabra'salir' para terminar:");
-
-        // Iteramos hasta que el usuario escriba 'salir'
-        while (!input.equalsIgnoreCase("salir")) {
-            lista.add(input); // Agregamos el string al ArrayList
-            input = JOptionPane.showInputDialog("Ingrese otro string o la palabra 'salir' para terminar:");
+        Listas l  = new Listas();
+        ///////JFRAME MENU /////////
+//        frm_MenuPrincipal p = new frm_MenuPrincipal();
+        ///////////////////////////
+        
+        
+//        Menu de Pruebas
+        int op = 0;
+         while (op != 5) {
+            op = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu Principal\n"
+                    + "1. Prueba AgregarMarcas \n"
+                    + "2. Prueba MostrarMarcas\n"
+                    + "3. Prueba AgregarProductos \n"
+                    + "4.Prueba MostrarProductos \n"
+                    + "5. Salir\n"
+                    +"Digite el dato de la opcion que desea:"));
+            switch (op) {
+                case 1:
+                    l.AgregarListaMarcas(marcas);
+                    break;
+                case 2:
+                    l.MostrarListaMarcas(marcas);
+                    break;
+                case 3:
+                    l.AgregarListaProductos(listaProductos, marcas);
+                    break;
+                case 4:
+                    l.MostrarListaProductos(listaProductos);
+                    break;
+                case 5:
+                    System.exit(0);
+                default:
+                    JOptionPane.showMessageDialog(null, "Error opcion invalida");
+            } 
         }
-
-        // Creamos un mensaje que muestra el contenido del ArrayList
-        String mensaje = "Contenido del ArrayList:\n";
-        for (String str : lista) {
-            mensaje += str + "\n";
-        }
-
-        // Mostramos el contenido del ArrayList en un cuadro de diálogo
-        JOptionPane.showMessageDialog(null, mensaje);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////         
     }
+    
+   
+    
     
 }
