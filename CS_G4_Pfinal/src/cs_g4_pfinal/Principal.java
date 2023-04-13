@@ -13,7 +13,7 @@ public class Principal {
         frm_MenuPrincipal p = new frm_MenuPrincipal();
         ///////////////////////////
     }
-    
+        
     
     
     
@@ -38,5 +38,5 @@ public class Principal {
         // Mostramos el contenido del ArrayList en un cuadro de diálogo
         JOptionPane.showMessageDialog(null, mensaje);
     }
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
 }
