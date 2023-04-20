@@ -6,12 +6,11 @@ import javax.swing.JOptionPane;
 
 public class Listas {
 
-    public void AgregarListaMarcas(ArrayList marcas) {
-        String Nmarca = JOptionPane.showInputDialog("Digite el nombre de la marca que desea agregar:");
-        marcas.add(Nmarca);
+    public void AgregarListaMarcas(ArrayList marcas, String nombre) {        
+        marcas.add(nombre);
     }
 
-    public void MostrarListaMarcas(ArrayList marcas) {
+    public void MostrarListaMarcas(ArrayList marcas) { //creo que este no se ocupa
         String Mensaje = "";
         for (Object f : marcas) {
             Mensaje = Mensaje + f + "\n";
@@ -19,52 +18,27 @@ public class Listas {
         JOptionPane.showMessageDialog(null, "Lista de Marcas: \n" + Mensaje);
     }
 
-    public void AgregarListaProductos(ArrayList listaProductos, ArrayList marcas) {
-        int op = 0;
-        while (op != 3) {
-            op = Integer.parseInt(JOptionPane.showInputDialog(null, "El producto es?\n"
-                    + "1. No Perecederos \n"
-                    + "2. Perecederos\n"
-                    + "3. Cancelar\n"
-                    + "Digite el dato de la opcion que desea:"));
-            switch (op) {
-                case 1:
-                    String Nombre = JOptionPane.showInputDialog(null, "Digite el nombre del producto:");
-                    int Precio = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el precio del producto:"));
-                    int id = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el id del producto:"));
-                    int Cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite la cantidad del producto:"));
-
-                    String Mensaje = "";
-                    for (Object f : marcas) {
-                        Mensaje = Mensaje + f + "\n";
-                    }
-                    String Marca = JOptionPane.showInputDialog("Lista de Marcas: \n" + Mensaje + "\nDigite la marca de la lista que quiere escoger");
-
-                    listaProductos.add(new NoPerecederos(true, Marca, id, Cantidad, Precio, Nombre));
-                    break;
-                case 2:
-                    Nombre = JOptionPane.showInputDialog(null, "Digite el nombre del producto:");
-                    Precio = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el precio del producto:"));
-                    id = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el id del producto:"));
-                    Cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite la cantidad del producto:"));
-
-                    Mensaje = "";
-                    for (Object f : marcas) {
-                        Mensaje = Mensaje + f + "\n";
-                    }
-                    Marca = JOptionPane.showInputDialog("Lista de Marcas: \n" + Mensaje + "\nDigite la marca de la lista que quiere escoger");
-
-                    listaProductos.add(new Perecederos(true, Marca, id, Cantidad, Precio, Nombre));
-                    break;
-                case 3:
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null, "Error opcion invalida");
-            }
+    public void AgregarListaProductos(ArrayList listaProductos, int id, String nombre, int can, String marca, String categoria) {
+        if (categoria.equals("No Perecederos")){
+            NoPerecederos np = new NoPerecederos();
+            np.setId(id);
+            np.setNombre(nombre);
+            np.setCantidad(can);
+            np.setNombreMarca(nombre);
+            listaProductos.add(np);
+            
+            
+        } else if (categoria.equals("Perecederos")){
+            Perecederos p = new Perecederos();
+            p.setId(id);
+            p.setNombre(nombre);
+            p.setCantidad(can);
+            p.setNombreMarca(marca);
+            listaProductos.add(p);
         }
     }
 
-    public void MostrarListaProductos(ArrayList ListaProductos) {
+    public void MostrarListaProductos(ArrayList ListaProductos) {//no se ocupa
         String Mensaje = "";
         for (Object f : ListaProductos) {
             Mensaje = Mensaje + f + "\n";

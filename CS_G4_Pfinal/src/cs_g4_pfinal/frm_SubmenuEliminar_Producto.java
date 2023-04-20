@@ -5,6 +5,7 @@
 package cs_g4_pfinal;
 
 import cs_g4_pfinal.frm_MenuEliminar;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,10 +13,15 @@ import cs_g4_pfinal.frm_MenuEliminar;
  */
 public class frm_SubmenuEliminar_Producto extends javax.swing.JFrame {
 
+    ArrayList<Producto> listaProductos;
+    ArrayList<MarcadeProducto> listaM;
+
     /**
      * Creates new form frm_SubmenuEliminar_Producto
      */
-    public frm_SubmenuEliminar_Producto() {
+    public frm_SubmenuEliminar_Producto(ArrayList<Producto> listaProductos, ArrayList<MarcadeProducto> listaM) {
+        this.listaM = listaM;
+        this.listaProductos = listaProductos;
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -155,7 +161,7 @@ public class frm_SubmenuEliminar_Producto extends javax.swing.JFrame {
 
     private void Volver_MenuEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Volver_MenuEliminarActionPerformed
         // TODO add your handling code here:
-        frm_MenuEliminar MElim = new frm_MenuEliminar();
+        frm_MenuEliminar MElim = new frm_MenuEliminar(listaProductos,listaM);
         this.setVisible(false);
     }//GEN-LAST:event_Volver_MenuEliminarActionPerformed
 
@@ -163,40 +169,6 @@ public class frm_SubmenuEliminar_Producto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Eliminar_ProductoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuEliminar_Producto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuEliminar_Producto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuEliminar_Producto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuEliminar_Producto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frm_SubmenuEliminar_Producto().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Eliminar_Producto;

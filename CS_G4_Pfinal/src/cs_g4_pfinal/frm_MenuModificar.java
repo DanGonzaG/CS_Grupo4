@@ -7,6 +7,7 @@ package cs_g4_pfinal;
 import cs_g4_pfinal.frm_MenuPrincipal;
 import cs_g4_pfinal.frm_SubmenuModificar_Marca;
 import cs_g4_pfinal.frm_SubmenuModificar_Producto;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,10 +15,16 @@ import cs_g4_pfinal.frm_SubmenuModificar_Producto;
  */
 public class frm_MenuModificar extends javax.swing.JFrame {
 
+    ArrayList<Producto> listaProductos;
+    ArrayList<MarcadeProducto> listaM;
+
     /**
      * Creates new form frm_MenuModificar
      */
-    public frm_MenuModificar() {
+    public frm_MenuModificar(ArrayList<Producto> listaProductos, ArrayList<MarcadeProducto> listaM) {
+        this.listaM = listaM;
+        this.listaProductos = listaProductos;
+
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -155,58 +162,24 @@ public class frm_MenuModificar extends javax.swing.JFrame {
 
     private void Volver_MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Volver_MenuPrincipalActionPerformed
         // TODO add your handling code here:
-        frm_MenuPrincipal prin = new frm_MenuPrincipal();
+        frm_MenuPrincipal prin = new frm_MenuPrincipal(listaProductos,listaM);
         this.setVisible(false);
 
     }//GEN-LAST:event_Volver_MenuPrincipalActionPerformed
 
     private void Modificar_ProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_ProductosActionPerformed
         // TODO add your handling code here:
-        frm_SubmenuModificar_Producto ModP = new frm_SubmenuModificar_Producto();
+        frm_SubmenuModificar_Producto ModP = new frm_SubmenuModificar_Producto(listaProductos,listaM);
         this.setVisible(false);
 
     }//GEN-LAST:event_Modificar_ProductosActionPerformed
 
     private void Modificar_MarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_MarcasActionPerformed
         // TODO add your handling code here:.
-        frm_SubmenuModificar_Marca ModM = new frm_SubmenuModificar_Marca();
+        frm_SubmenuModificar_Marca ModM = new frm_SubmenuModificar_Marca(listaProductos,listaM);
         this.setVisible(false);
     }//GEN-LAST:event_Modificar_MarcasActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_MenuModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_MenuModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_MenuModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_MenuModificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frm_MenuModificar().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Modificar_Marcas;

@@ -5,6 +5,7 @@
 package cs_g4_pfinal;
 
 import cs_g4_pfinal.frm_MenuBuscar;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,10 +13,15 @@ import cs_g4_pfinal.frm_MenuBuscar;
  */
 public class frm_SubmenuBuscar_Marca extends javax.swing.JFrame {
 
+    ArrayList<Producto> listaProductos;
+    ArrayList<MarcadeProducto> listaM;
+
     /**
      * Creates new form frm_SubmenuBuscar_Marca
      */
-    public frm_SubmenuBuscar_Marca() {
+    public frm_SubmenuBuscar_Marca(ArrayList<Producto> listaProductos, ArrayList<MarcadeProducto> listaM) {
+        this.listaM = listaM;
+        this.listaProductos = listaProductos;
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -159,48 +165,13 @@ public class frm_SubmenuBuscar_Marca extends javax.swing.JFrame {
 
     private void Volver_MenuBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Volver_MenuBuscarActionPerformed
         // TODO add your handling code here:
-        frm_MenuBuscar MBusc = new frm_MenuBuscar();
+        frm_MenuBuscar MBusc = new frm_MenuBuscar(listaProductos,listaM);
         this.setVisible(false);
     }//GEN-LAST:event_Volver_MenuBuscarActionPerformed
 
     private void Buscar_MarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar_MarcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Buscar_MarcaActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuBuscar_Marca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuBuscar_Marca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuBuscar_Marca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuBuscar_Marca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frm_SubmenuBuscar_Marca().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar_Marca;

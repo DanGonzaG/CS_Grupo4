@@ -3,9 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package cs_g4_pfinal;
+
 import cs_g4_pfinal.frm_MenuPrincipal;
 import cs_g4_pfinal.frm_SubmenuAgregar_Marca;
 import cs_g4_pfinal.frm_SubmenuAgregar_Producto;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,10 +15,16 @@ import cs_g4_pfinal.frm_SubmenuAgregar_Producto;
  */
 public class frm_MenuAgregar extends javax.swing.JFrame {
 
+    ArrayList<Producto> listaProductos;
+    ArrayList<MarcadeProducto> listaM;
+
     /**
      * Creates new form frm_MenuAgregar
      */
-    public frm_MenuAgregar() {
+    public frm_MenuAgregar(ArrayList<Producto> listaProductos,ArrayList<MarcadeProducto> listaM) {
+        this.listaM = listaM;
+        this.listaProductos = listaProductos;
+        
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -151,58 +159,24 @@ public class frm_MenuAgregar extends javax.swing.JFrame {
 
     private void Volver_MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Volver_MenuPrincipalActionPerformed
         // TODO add your handling code here:
-        frm_MenuPrincipal prin = new frm_MenuPrincipal();
+        frm_MenuPrincipal prin = new frm_MenuPrincipal(listaProductos,listaM);
         this.setVisible(false);
 
     }//GEN-LAST:event_Volver_MenuPrincipalActionPerformed
 
     private void Agregar_ProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_ProductosActionPerformed
         // TODO add your handling code here:
-        frm_SubmenuAgregar_Producto AgreP = new frm_SubmenuAgregar_Producto();
+        frm_SubmenuAgregar_Producto AgreP = new frm_SubmenuAgregar_Producto(listaProductos,listaM);
         this.setVisible(false);
 
     }//GEN-LAST:event_Agregar_ProductosActionPerformed
 
     private void Agregar_MarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_MarcasActionPerformed
         // TODO add your handling code here:
-        frm_SubmenuAgregar_Marca AgreM = new frm_SubmenuAgregar_Marca();
+        frm_SubmenuAgregar_Marca AgreM = new frm_SubmenuAgregar_Marca(listaProductos,listaM);
         this.setVisible(false);
     }//GEN-LAST:event_Agregar_MarcasActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_MenuAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_MenuAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_MenuAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_MenuAgregar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frm_MenuAgregar().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar_Marcas;

@@ -5,6 +5,7 @@
 package cs_g4_pfinal;
 
 import cs_g4_pfinal.frm_MenuAgregar;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,10 +13,15 @@ import cs_g4_pfinal.frm_MenuAgregar;
  */
 public class frm_SubmenuAgregar_Marca extends javax.swing.JFrame {
 
+    ArrayList<Producto> listaProductos;
+    ArrayList<MarcadeProducto> listaM;
+
     /**
      * Creates new form frm_SubmenuAgregar_Marca
      */
-    public frm_SubmenuAgregar_Marca() {
+    public frm_SubmenuAgregar_Marca(ArrayList<Producto> listaProductos, ArrayList<MarcadeProducto> listaM) {
+        this.listaM = listaM;
+        this.listaProductos = listaProductos;
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
@@ -158,48 +164,16 @@ public class frm_SubmenuAgregar_Marca extends javax.swing.JFrame {
 
     private void Volver_MenuAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Volver_MenuAgregarActionPerformed
         // TODO add your handling code here:
-        frm_MenuAgregar MAgre = new frm_MenuAgregar();
+        frm_MenuAgregar MAgre = new frm_MenuAgregar(listaProductos,listaM);
         this.setVisible(false);
     }//GEN-LAST:event_Volver_MenuAgregarActionPerformed
 
     private void Agregar_MarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_MarcaActionPerformed
-        // TODO add your handling code here:
+       Listas l = new Listas();
+       l.AgregarListaMarcas(listaM,txt_NombreMarca.getText());
+       l.MostrarListaMarcas(listaM);
     }//GEN-LAST:event_Agregar_MarcaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuAgregar_Marca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuAgregar_Marca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuAgregar_Marca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_SubmenuAgregar_Marca.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frm_SubmenuAgregar_Marca().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Agregar_Marca;
