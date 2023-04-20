@@ -32,7 +32,7 @@ public class frm_SubmenuAgregar_Producto extends javax.swing.JFrame {
             
         }
         
-        Listas l = new Listas();
+        
             
         
         
@@ -279,6 +279,9 @@ public class frm_SubmenuAgregar_Producto extends javax.swing.JFrame {
     private void Agregar_ProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_ProductoActionPerformed
 //        String cate = this.ctbnCategoria.getItemAt(WIDTH);
 //        String marca = this.cbtnMarcas.getItemAt(WIDTH);
+
+
+
         String cate = ctbnCategoria.getSelectedItem().toString();
         String marca = cbtnMarcas.getSelectedItem().toString();
         Listas l = new Listas();
@@ -286,6 +289,10 @@ public class frm_SubmenuAgregar_Producto extends javax.swing.JFrame {
         l.AgregarListaProductos(listaProductos,
                 Integer.parseInt(txtID.getText()),txt_Nombre.getText(), Integer.parseInt(txt_Cantidad.getText()), marca, cate,Integer.parseInt(txt_Precio.getText()));
         JOptionPane.showMessageDialog(null, "Producto Agregado!!");
+        
+        
+        
+        
         
         txtID.setText(null);
         txt_Cantidad.setText(null);

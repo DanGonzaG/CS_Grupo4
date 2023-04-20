@@ -176,6 +176,7 @@ public class frm_SubmenuAgregar_Marca extends javax.swing.JFrame {
        l.AgregarListaMarcas(listaM,txt_NombreMarca.getText());
        
        JOptionPane.showMessageDialog(null, "Marca Agregada!!");
+       
        txt_NombreMarca.setText(null);
 //       l.MostrarListaMarcas(listaM);
     }//GEN-LAST:event_Agregar_MarcaActionPerformed

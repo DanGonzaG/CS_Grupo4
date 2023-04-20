@@ -16,7 +16,7 @@ public class Principal extends Thread{
         
         
         ArrayList<Producto> listaProductos = new ArrayList<>();
-        ArrayList <MarcadeProducto> listaM = new ArrayList<>();
+//        ArrayList <MarcadeProducto> listaM = new ArrayList<>();
         
         ArrayList<marcas> listaMarcas = new ArrayList<>();
 //        
