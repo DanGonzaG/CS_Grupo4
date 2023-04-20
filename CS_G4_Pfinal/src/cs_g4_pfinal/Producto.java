@@ -7,20 +7,23 @@ public class Producto implements InterfaceBodega {
     private int Cantidad;
     private double Precio;
     private String Nombre;
+    private String nomMarca;
 
 ///////////// Constructor Vacio //////////////////////////////////////////////
     public Producto() {
     }
 
 ///////////// Constructor Lleno //////////////////////////////////////////////
-    public Producto(int id, int Cantidad, double Precio, String Nombre) {
+    public Producto(int id, int Cantidad, double Precio, String Nombre, String nomMarca) {
         this.id = id;
         this.Cantidad = Cantidad;
         this.Precio = Precio;
         this.Nombre = Nombre;
+        this.nomMarca = nomMarca;
     }
 /////////////// getters y setters //////////////////////////////////////////////
 
+    
     public int getId() {
         return id;
     }
@@ -53,7 +56,18 @@ public class Producto implements InterfaceBodega {
         this.Nombre = Nombre;
     }
 
+    public String getNomMarca() {
+        return nomMarca;
+    }
+
+    public void setNomMarca(String nomMarca) {
+        this.nomMarca = nomMarca;
+    }
+    
+    
+
 ////////////////// Metodos Abstractos Vacios //////////////////////////////////////////////
+    @Override
     public String Descripcion() {
         return Nombre;
     }
@@ -61,9 +75,12 @@ public class Producto implements InterfaceBodega {
    
 
 //////////////// ToString//////////////////////////////////////////////
+
     @Override
     public String toString() {
-        return "Producto{" + "id=" + id + ", Cantidad=" + Cantidad + ", Precio=" + Precio + ", Nombre=" + Nombre + '}';
+        return "Producto{" + "id=" + id + ", Cantidad=" + Cantidad + ", Precio=" + Precio + ", Nombre=" + Nombre + ", nomMarca=" + nomMarca + '}';
     }
+  
+    
 
 }

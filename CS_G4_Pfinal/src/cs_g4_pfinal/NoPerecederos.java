@@ -2,15 +2,15 @@ package cs_g4_pfinal;
 
 import jdk.jfr.Description;
 
-public class NoPerecederos extends MarcadeProducto {
+public class NoPerecederos extends Producto {
 
     private boolean NoPercederos;
 
     public NoPerecederos() {
     }
 
-    public NoPerecederos(boolean NoPercederos, String NombreMarca, int id, int Cantidad, double Precio, String Nombre) {
-        super(NombreMarca, id, Cantidad, Precio, Nombre);
+    public NoPerecederos(boolean NoPercederos, int id, int Cantidad, double Precio, String Nombre, String nomMarca) {
+        super(id, Cantidad, Precio, Nombre, nomMarca);
         this.NoPercederos = NoPercederos;
     }
 

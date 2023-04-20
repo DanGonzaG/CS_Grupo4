@@ -6,39 +6,41 @@ import javax.swing.JOptionPane;
 
 public class Listas {
 
-    public void AgregarListaMarcas(ArrayList marcas, String nombre) {        
-        marcas.add(nombre);
+    public void AgregarListaMarcas(ArrayList<marcas> marcas, String nombre) {
+        marcas m = new marcas();
+        m.setNombre(nombre);
+        marcas.add(m);
     }
 
-    public void MostrarListaMarcas(ArrayList marcas) { //creo que este no se ocupa
+    public void MostrarListaMarcas(ArrayList<marcas> marcas) { //creo que este no se ocupa
         String Mensaje = "";
-        for (Object f : marcas) {
-            Mensaje = Mensaje + f + "\n";
+        for (int i = 0; i < marcas.size(); i++) {
+            Mensaje = Mensaje + marcas.get(i).getNombre() + "\n";
         }
+
         JOptionPane.showMessageDialog(null, "Lista de Marcas: \n" + Mensaje);
     }
 
-    public void AgregarListaProductos(ArrayList listaProductos, int id, String nombre, int can, String marca, String categoria) {
-        if (categoria.equals("No Perecederos")){
+    public void AgregarListaProductos(ArrayList<Producto> listaProductos, int id, String nombre, int can, String marca, String categoria) {
+        if (categoria.equals("No Perecederos")) {
             NoPerecederos np = new NoPerecederos();
             np.setId(id);
             np.setNombre(nombre);
             np.setCantidad(can);
-            np.setNombreMarca(nombre);
+            np.setNomMarca(marca);
             listaProductos.add(np);
-            
-            
-        } else if (categoria.equals("Perecederos")){
+
+        } else if (categoria.equals("Perecederos")) {
             Perecederos p = new Perecederos();
             p.setId(id);
             p.setNombre(nombre);
             p.setCantidad(can);
-            p.setNombreMarca(marca);
+            p.setNomMarca(marca);
             listaProductos.add(p);
         }
     }
 
-    public void MostrarListaProductos(ArrayList ListaProductos) {//no se ocupa
+    public void MostrarListaProductos(ArrayList<Producto> ListaProductos) {//no se ocupa
         String Mensaje = "";
         for (Object f : ListaProductos) {
             Mensaje = Mensaje + f + "\n";
@@ -165,7 +167,7 @@ public class Listas {
             if (f.equals(MarcaBuscada)) {
                 encontrado = true;
                 Marcas.remove(f);
-                String NuevaMarca= JOptionPane.showInputDialog("Ingrese la  nueva marca:");
+                String NuevaMarca = JOptionPane.showInputDialog("Ingrese la  nueva marca:");
                 Marcas.add(NuevaMarca);
                 JOptionPane.showMessageDialog(null, "Marca Editada con exito!");
                 break;
@@ -177,7 +179,7 @@ public class Listas {
 
     }
 
-    public void ModificarProducto(ArrayList ListaProductos, int IDbuscado, ArrayList marcas) {
+    /*public void ModificarProducto(ArrayList ListaProductos, int IDbuscado, ArrayList marcas) {
         Iterator<Producto> itListaProductos = ListaProductos.iterator();
         boolean validar = false;
         while (itListaProductos.hasNext() && validar == false) {
@@ -202,7 +204,7 @@ public class Listas {
                         + "3. Cancelar\n"
                         + "Digite el dato de la opcion que desea:"));
                 if (Categoria == 1) {
-                    ListaProductos.add(new NoPerecederos(true, Marca, id, Cantidad, Precio, Nombre));
+                    ListaProductos.add(new NoPerecederos(true, Marca, id, Cantidad, Precio, Nombre, nomMarca));
                     JOptionPane.showMessageDialog(null, "Producto Editado con exito!");
                 } else if (Categoria == 2) {
                     ListaProductos.add(new Perecederos(true, Marca, id, Cantidad, Precio, Nombre));
@@ -216,5 +218,16 @@ public class Listas {
                 }
             }
         }
+
+
+    }*/
+    
+    
+//hilo para modificacion simuntanea
+    public void modificarMarca2(String letraVieja, String letraNueva, marcas m, ArrayList<marcas> listaM, Producto p, ArrayList<Producto> listaP) {
+        ModThread mod = new ModThread();
+        mod.modificarMarca(letraVieja, letraNueva, m, listaM, p, listaP);
+        mod.start();
+
     }
 }

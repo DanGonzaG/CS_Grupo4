@@ -1,14 +1,14 @@
 package cs_g4_pfinal;
 
 
-public class Perecederos extends MarcadeProducto{
+public class Perecederos extends Producto{
     private boolean Percederos;
 
     public Perecederos() {
     }
     
-    public Perecederos(boolean Percederos, String NombreMarca, int id, int Cantidad, double Precio, String Nombre) {
-        super(NombreMarca, id, Cantidad, Precio, Nombre);
+    public Perecederos(boolean Percederos,  int id, int Cantidad, double Precio, String Nombre, String nomMarca) {
+        super(id, Cantidad, Precio, Nombre, nomMarca);
         this.Percederos = Percederos;
     }
 

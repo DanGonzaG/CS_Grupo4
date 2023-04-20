@@ -14,12 +14,14 @@ import java.util.ArrayList;
 public class frm_SubmenuModificar_Producto extends javax.swing.JFrame {
 
     ArrayList<Producto> listaProductos;
-    ArrayList<MarcadeProducto> listaM;
+    //ArrayList<MarcadeProducto> listaM;
+    
+    ArrayList<marcas> listaM;
 
     /**
      * Creates new form frm_SubmenuModificar_Producto
      */
-    public frm_SubmenuModificar_Producto(ArrayList<Producto> listaProductos, ArrayList<MarcadeProducto> listaM) {
+    public frm_SubmenuModificar_Producto(ArrayList<Producto> listaProductos, ArrayList<marcas> listaM) {
         this.listaM = listaM;
         this.listaProductos = listaProductos;
         initComponents();

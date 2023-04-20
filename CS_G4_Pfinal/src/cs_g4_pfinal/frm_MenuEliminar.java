@@ -16,12 +16,14 @@ import java.util.ArrayList;
 public class frm_MenuEliminar extends javax.swing.JFrame {
 
     ArrayList<Producto> listaProductos;
-    ArrayList<MarcadeProducto> listaM;
+    //ArrayList<MarcadeProducto> listaM;
+    
+    ArrayList<marcas> listaM;
 
     /**
      * Creates new form frm_MenuEliminar
      */
-    public frm_MenuEliminar(ArrayList<Producto> listaProductos, ArrayList<MarcadeProducto> listaM) {
+    public frm_MenuEliminar(ArrayList<Producto> listaProductos, ArrayList<marcas> listaM) {
         this.listaM = listaM;
         this.listaProductos = listaProductos;
 

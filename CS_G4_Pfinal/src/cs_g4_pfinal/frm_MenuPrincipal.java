@@ -8,10 +8,12 @@ import java.util.ArrayList;
 
 public class frm_MenuPrincipal extends javax.swing.JFrame {
 ArrayList<Producto> listaProductos;
-ArrayList<MarcadeProducto> listaM;    
+//ArrayList<MarcadeProducto> listaM;
+
+ArrayList<marcas> listaM;
     
 
-    public frm_MenuPrincipal(ArrayList<Producto> listaProductos, ArrayList<MarcadeProducto> listaM) {
+    public frm_MenuPrincipal(ArrayList<Producto> listaProductos, ArrayList<marcas> listaM) {
         this.listaM = listaM;
         this.listaProductos = listaProductos;
         

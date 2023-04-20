@@ -16,12 +16,14 @@ import java.util.ArrayList;
 public class frm_MenuAgregar extends javax.swing.JFrame {
 
     ArrayList<Producto> listaProductos;
-    ArrayList<MarcadeProducto> listaM;
+    //ArrayList<MarcadeProducto> listaM;
+    
+    ArrayList<marcas> listaM;
 
     /**
      * Creates new form frm_MenuAgregar
      */
-    public frm_MenuAgregar(ArrayList<Producto> listaProductos,ArrayList<MarcadeProducto> listaM) {
+    public frm_MenuAgregar(ArrayList<Producto> listaProductos,ArrayList<marcas> listaM) {
         this.listaM = listaM;
         this.listaProductos = listaProductos;
         

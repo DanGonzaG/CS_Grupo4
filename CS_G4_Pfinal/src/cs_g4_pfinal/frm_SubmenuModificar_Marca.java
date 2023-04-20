@@ -14,12 +14,14 @@ import java.util.ArrayList;
 public class frm_SubmenuModificar_Marca extends javax.swing.JFrame {
 
     ArrayList<Producto> listaProductos;
-    ArrayList<MarcadeProducto> listaM;
+    //ArrayList<MarcadeProducto> listaM;
+    
+    ArrayList<marcas> listaM;
 
     /**
      * Creates new form frm_SubmenuModificar_Marca
      */
-    public frm_SubmenuModificar_Marca(ArrayList<Producto> listaProductos, ArrayList<MarcadeProducto> listaM) {
+    public frm_SubmenuModificar_Marca(ArrayList<Producto> listaProductos, ArrayList<marcas> listaM) {
         this.listaM = listaM;
         this.listaProductos = listaProductos;
         initComponents();
@@ -178,7 +180,13 @@ public class frm_SubmenuModificar_Marca extends javax.swing.JFrame {
     }//GEN-LAST:event_Volver_MenuModificarActionPerformed
 
     private void Modificar_MarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_MarcaActionPerformed
-        // TODO add your handling code here:
+        //MarcadeProducto m = new MarcadeProducto();
+        marcas m = new marcas();
+        
+        Producto p = new Producto();
+        Listas l = new Listas();
+        //public void modificarMarca2(String letraVieja, String letraNueva, MarcadeProducto m, ArrayList<MarcadeProducto> listaM, Producto p, ArrayList<Producto> listaP) {
+        l.modificarMarca2(txt_BuscarMarca_Modificar.getText(), txt_NombreNuevo_Marca.getText(), m, listaM, p, listaProductos);
     }//GEN-LAST:event_Modificar_MarcaActionPerformed
 
 
