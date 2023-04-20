@@ -27,9 +27,7 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        Listas l = new Listas();
-        l.MostrarListaMarcas(listaM);
-        l.MostrarListaProductos(listaProductos);
+        
     }
 
     /**
@@ -47,6 +45,7 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
         Mostrar_Inventario = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        Mostrar_Marcas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +85,16 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/6.png"))); // NOI18N
 
+        Mostrar_Marcas.setBackground(new java.awt.Color(204, 153, 0));
+        Mostrar_Marcas.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        Mostrar_Marcas.setForeground(new java.awt.Color(255, 255, 255));
+        Mostrar_Marcas.setText("Marcas");
+        Mostrar_Marcas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mostrar_MarcasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -99,9 +108,11 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(Volver_MenuPrincipal))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(Mostrar_Inventario, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(72, 72, 72)
+                                .addGap(54, 54, 54)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Mostrar_Marcas, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Mostrar_Inventario, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(78, 78, 78)
                         .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -112,9 +123,11 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150)
+                .addGap(93, 93, 93)
                 .addComponent(Mostrar_Inventario)
-                .addGap(176, 176, 176)
+                .addGap(92, 92, 92)
+                .addComponent(Mostrar_Marcas)
+                .addGap(109, 109, 109)
                 .addComponent(Volver_MenuPrincipal)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -156,9 +169,16 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Mostrar_InventarioActionPerformed
 
+    private void Mostrar_MarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mostrar_MarcasActionPerformed
+        // TODO add your handling code here:
+        Listas l = new Listas();
+        l.MostrarListaMarcas(listaM);
+    }//GEN-LAST:event_Mostrar_MarcasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Mostrar_Inventario;
+    private javax.swing.JButton Mostrar_Marcas;
     private javax.swing.JButton Volver_MenuPrincipal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

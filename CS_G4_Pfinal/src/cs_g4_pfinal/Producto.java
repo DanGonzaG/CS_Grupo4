@@ -78,7 +78,7 @@ public class Producto implements InterfaceBodega {
 
     @Override
     public String toString() {
-        return "Producto{" + "id=" + id + ", Cantidad=" + Cantidad + ", Precio=" + Precio + ", Nombre=" + Nombre + ", nomMarca=" + nomMarca + '}';
+        return "Id = " + id + " | Cantidad = " + Cantidad + " | Precio = " + Precio + " | Nombre = " + Nombre + " | Marca = " + nomMarca ;
     }
   
     

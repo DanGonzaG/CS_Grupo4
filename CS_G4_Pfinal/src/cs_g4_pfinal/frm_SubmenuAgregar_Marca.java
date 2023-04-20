@@ -6,6 +6,7 @@ package cs_g4_pfinal;
 
 import cs_g4_pfinal.frm_MenuAgregar;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -173,7 +174,10 @@ public class frm_SubmenuAgregar_Marca extends javax.swing.JFrame {
     private void Agregar_MarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_MarcaActionPerformed
        Listas l = new Listas();
        l.AgregarListaMarcas(listaM,txt_NombreMarca.getText());
-       l.MostrarListaMarcas(listaM);
+       
+       JOptionPane.showMessageDialog(null, "Marca Agregada!!");
+       txt_NombreMarca.setText(null);
+//       l.MostrarListaMarcas(listaM);
     }//GEN-LAST:event_Agregar_MarcaActionPerformed
 
 

@@ -36,6 +36,6 @@ public class NoPerecederos extends Producto {
 
     @Override
     public String toString() {
-        return super.toString() + Descripcion();
+        return super.toString() + " | " + Descripcion();
     }
 }

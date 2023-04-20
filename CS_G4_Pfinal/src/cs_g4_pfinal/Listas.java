@@ -21,13 +21,14 @@ public class Listas {
         JOptionPane.showMessageDialog(null, "Lista de Marcas: \n" + Mensaje);
     }
 
-    public void AgregarListaProductos(ArrayList<Producto> listaProductos, int id, String nombre, int can, String marca, String categoria) {
+    public void AgregarListaProductos(ArrayList<Producto> listaProductos, int id, String nombre, int can, String marca, String categoria, int precio) {
         if (categoria.equals("No Perecederos")) {
             NoPerecederos np = new NoPerecederos();
             np.setId(id);
             np.setNombre(nombre);
             np.setCantidad(can);
             np.setNomMarca(marca);
+            np.setPrecio(precio);
             listaProductos.add(np);
 
         } else if (categoria.equals("Perecederos")) {
@@ -36,6 +37,7 @@ public class Listas {
             p.setNombre(nombre);
             p.setCantidad(can);
             p.setNomMarca(marca);
+            p.setPrecio(precio);
             listaProductos.add(p);
         }
     }
