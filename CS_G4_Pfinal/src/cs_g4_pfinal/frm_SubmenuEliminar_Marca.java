@@ -182,10 +182,9 @@ public class frm_SubmenuEliminar_Marca extends javax.swing.JFrame {
     }//GEN-LAST:event_Volver_MenuEliminarActionPerformed
 
     private void Eliminar_MarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_MarcaActionPerformed
-        // TODO add your handling code here:
         Listas l = new Listas();
         String Marcabuscada = cbtnMarcas.getSelectedItem().toString();
-        l.EliminarMarca(listaM, Marcabuscada);
+        l.EliminarMarca(listaProductos, listaM, Marcabuscada);
         txaProductos.setText(l.MostrarListaMarcasTXA(listaM));
         
     }//GEN-LAST:event_Eliminar_MarcaActionPerformed

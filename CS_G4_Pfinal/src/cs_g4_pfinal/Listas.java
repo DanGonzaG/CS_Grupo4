@@ -42,7 +42,7 @@ public class Listas {
             np.setNombre(nombre);
             np.setCantidad(can);
             np.setNomMarca(marca);
-            np.setPrecio(precio);
+            np.setPrecio(precio);            
             listaProductos.add(np);
 
         } else if (categoria.equals("Perecederos")) {
@@ -105,13 +105,13 @@ public class Listas {
                 validar = true;
             }
         }
-        if(validar == false){
+        if (validar == false) {
             Mensaje = "La Marca NO fue encontrada.";
-        }else{
-            while(itproducto.hasNext()){
+        } else {
+            while (itproducto.hasNext()) {
                 prod = itproducto.next();
-                if(prod.getNomMarca().equals(MarcaBuscada)){
-                    Mensaje = Mensaje + prod.toString()+"\n";
+                if (prod.getNomMarca().equals(MarcaBuscada)) {
+                    Mensaje = Mensaje + prod.toString() + "\n";
                 }
             }
         }
@@ -123,7 +123,7 @@ public class Listas {
         Iterator<Producto> itNoPerecederos = ListaProductos.iterator();
         while (itNoPerecederos.hasNext()) {
             Producto NoP = itNoPerecederos.next();
-            if (NoP.Descripcion().equals("No Percederos")) {
+            if (NoP.Descripcion().equals("No Perecederos")) {
                 ListaNoPerecederos = ListaNoPerecederos + NoP.toString() + "\n";
             }
         }
@@ -135,28 +135,45 @@ public class Listas {
         Iterator<Producto> itPerecederos = ListaProductos.iterator();
         while (itPerecederos.hasNext()) {
             Producto NoP = itPerecederos.next();
-            if (NoP.Descripcion().equals("Percederos")) {
+            if (NoP.Descripcion().equals("Perecederos")) {
                 ListaPerecederos = ListaPerecederos + NoP.toString() + "\n";
             }
         }
         return ListaPerecederos;
     }
 
-    public void EliminarMarca(ArrayList Marcas, String MarcaBuscada) {
-        boolean encontrado = false;
+    public void EliminarMarca(ArrayList<Producto> listap, ArrayList<marcas> Marcas, String MarcaBuscada) {
+        boolean bandera = false;
+        Producto p = new Producto();
 
-        for (Object f : Marcas) {
-            if (f.equals(MarcaBuscada)) {
-                encontrado = true;
-                Marcas.remove(f);
-                JOptionPane.showMessageDialog(null, "Marca ELIMINADA con exito!");
+        Iterator<Producto> it = listap.iterator();
+        while (it.hasNext()) {
+            p = it.next();
+            if (MarcaBuscada.equals(p.getNomMarca())) {
+                bandera = true;
                 break;
             }
         }
-        if (encontrado == false) {
-            JOptionPane.showMessageDialog(null, "Marca No encontrada ");
-        }
 
+        if (bandera == false) {
+            for (int i = 0; i < Marcas.size(); i++) {
+                if (MarcaBuscada.equals(Marcas.get(i).getNombre())) {
+                    Marcas.remove(i);
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Registro eliminado con exito", "Logrado", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "La marca " + MarcaBuscada + " tiene productos asigandos por lo que no puede eliminarse", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void EliminarMarca2(ArrayList<Producto> listap, ArrayList<marcas> Marcas, String MarcaBuscada) {
+
+        for (int i = 0; i < Marcas.size(); i++) {
+            if (MarcaBuscada.equals(Marcas.get(i).getNombre())) {
+                Marcas.remove(i);
+            }
+        }
     }
 
     public void EliminarProducto(ArrayList ListaProductos, int IDbuscado) {

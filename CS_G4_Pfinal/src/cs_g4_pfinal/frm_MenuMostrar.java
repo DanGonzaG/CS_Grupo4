@@ -6,6 +6,7 @@ package cs_g4_pfinal;
 
 import cs_g4_pfinal.frm_MenuPrincipal;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,9 +29,39 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         Listas l = new Listas();
-        txta_MostrarInv.setText(l.MostrarListaProductosTXTA(listaProductos));
+        //txta_MostrarInv.setText(l.MostrarListaProductosTXTA(listaProductos));
         txta_MostrarMarc.setText(l.MostrarListaMarcasTXA(listaM));
+        cargarDatosProducto(listaProductos);
+        cargarDatosMarcas(listaM);
         
+    }
+    
+    public void cargarDatosProducto (ArrayList<Producto> lista){
+        DefaultTableModel model = (DefaultTableModel) tablaProducto.getModel();
+        model.setNumRows(0);
+        String datos []=new String[5];
+        int i = 0;
+        for (Producto p : lista) {
+            datos[0] = String.valueOf(lista.get(i).getId());
+            datos[1] = lista.get(i).getNombre();
+            datos[2] = String.valueOf(lista.get(i).getCantidad());
+            datos[3] = lista.get(i).getNomMarca();
+            datos[4] = String.valueOf(lista.get(i).getPrecio());
+            i++;
+            model.addRow(datos);            
+        }        
+    }
+    
+    public void cargarDatosMarcas (ArrayList<marcas> lista){
+        DefaultTableModel model = (DefaultTableModel) tablaMarcas.getModel();
+        model.setNumRows(0);
+        String datos []=new String[1];
+        int i = 0;
+        for (marcas p : lista) {
+            datos[0] = lista.get(i).getNombre();            
+            i++;
+            model.addRow(datos);            
+        }        
     }
 
     /**
@@ -42,6 +73,10 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txta_MostrarInv = new javax.swing.JTextPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txta_MostrarMarc = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         btnVolver_MenuPrincipal = new javax.swing.JButton();
@@ -49,10 +84,16 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnMostrar_Marcas = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txta_MostrarMarc = new javax.swing.JTextPane();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        txta_MostrarInv = new javax.swing.JTextPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaProducto = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaMarcas = new javax.swing.JTable();
+
+        txta_MostrarInv.setEditable(false);
+        jScrollPane5.setViewportView(txta_MostrarInv);
+
+        txta_MostrarMarc.setEditable(false);
+        jScrollPane4.setViewportView(txta_MostrarMarc);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -93,11 +134,25 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
         btnMostrar_Marcas.setForeground(new java.awt.Color(255, 255, 255));
         btnMostrar_Marcas.setText("Mostrar Marcas");
 
-        txta_MostrarMarc.setEditable(false);
-        jScrollPane4.setViewportView(txta_MostrarMarc);
+        tablaProducto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        txta_MostrarInv.setEditable(false);
-        jScrollPane5.setViewportView(txta_MostrarInv);
+            },
+            new String [] {
+                "CODIGO", "NOMBRE", "CANTIDAD", "MARCA", "PRECIO"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaProducto);
+
+        tablaMarcas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "NOMBRE"
+            }
+        ));
+        jScrollPane2.setViewportView(tablaMarcas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -105,53 +160,41 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnMostrar_Marcas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnMostrar_Inventario, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE))
+                    .addComponent(btnMostrar_Inventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnVolver_MenuPrincipal)
-                                .addGap(316, 316, 316))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 815, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addGap(12, 12, 12)
+                                .addComponent(btnVolver_MenuPrincipal)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(btnMostrar_Marcas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addContainerGap())
+                .addGap(33, 33, 33))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnMostrar_Inventario)
-                        .addGap(17, 17, 17)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnMostrar_Marcas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnVolver_MenuPrincipal))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 516, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMostrar_Inventario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnMostrar_Marcas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnVolver_MenuPrincipal)
+                .addGap(18, 18, 18))
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,9 +232,13 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tablaMarcas;
+    private javax.swing.JTable tablaProducto;
     private javax.swing.JTextPane txta_MostrarInv;
     private javax.swing.JTextPane txta_MostrarMarc;
     // End of variables declaration//GEN-END:variables

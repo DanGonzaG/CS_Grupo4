@@ -22,12 +22,13 @@ public class NoPerecederos extends Producto {
         this.NoPercederos = Percederos;
     }
 
+    @Override
     public String Descripcion() {
         String DescripcionMensaje="";
         if ( NoPercederos == false) {
-            DescripcionMensaje = "Percederos";
+            DescripcionMensaje = "Perecederos";
         }else{
-            DescripcionMensaje = "No Percederos";
+            DescripcionMensaje = "No Perecederos";
         }
         return DescripcionMensaje;
     }
