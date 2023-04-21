@@ -20,7 +20,8 @@ public class Listas {
 
         return Mensaje;
     }
-    
+
+    //////////SOOLO Pruebas/////////////////////////////////////////
     public void MostrarListaMarcas(ArrayList<marcas> marcas) { //creo que este no se ocupa
         String Mensaje = "";
         for (int i = 0; i < marcas.size(); i++) {
@@ -31,11 +32,11 @@ public class Listas {
     }
 
     public void AgregarListaProductos(ArrayList<Producto> listaProductos, int id, String nombre, int can, String marca, String categoria, int precio) {
-           int Nid=id;
-           int NCantidad= can;
-           int Nprecio = precio;
-           
-            if (categoria.equals("No Perecederos")) {
+        int Nid = id;
+        int NCantidad = can;
+        int Nprecio = precio;
+
+        if (categoria.equals("No Perecederos")) {
             NoPerecederos np = new NoPerecederos();
             np.setId(id);
             np.setNombre(nombre);
@@ -52,8 +53,8 @@ public class Listas {
             p.setNomMarca(marca);
             p.setPrecio(precio);
             listaProductos.add(p);
-        
-       }
+
+        }
     }
 
     public String MostrarListaProductosTXTA(ArrayList<Producto> ListaProductos) {//no se ocupa
@@ -63,7 +64,8 @@ public class Listas {
         }
         return Mensaje;
     }
-    
+
+    //////////SOOLO Pruebas/////////////////////////////////////////
     public void MostrarListaProductos(ArrayList<Producto> ListaProductos) {//no se ocupa
         String Mensaje = "";
         for (Object f : ListaProductos) {
@@ -72,54 +74,51 @@ public class Listas {
         JOptionPane.showMessageDialog(null, "Lista de Productos: \n" + Mensaje);
     }
 
-    public void BuscarID(ArrayList ListaProductos, int IDbuscado) {
+    public String BuscarID(ArrayList ListaProductos, int IDbuscado) {
         Iterator<Producto> itListaProductos = ListaProductos.iterator();
+        String Mensaje = "";
         boolean validar = false;
         while (itListaProductos.hasNext() && validar == false) {
             Producto prod = itListaProductos.next();
             if (prod.getId() == IDbuscado) {
-                JOptionPane.showMessageDialog(null, "ID encontrado \n Producto:\n  " + prod.toString());
+                Mensaje = "ID encontrado!\n" + "Producto:\n" + prod.toString();
                 validar = true;
             }
         }
         if (validar == false) {
-            JOptionPane.showMessageDialog(null, "Id no encontrado");
+            Mensaje = "Id no encontrado";
         }
-
+        return Mensaje;
     }
 
-    public void BuscarMarca(ArrayList ListaProductos, ArrayList Marcas) {
+    public String BuscarMarca(ArrayList<Producto> ListaProductos, ArrayList<marcas> ListMarcas, String MarcaBuscada) {
+        Producto prod = new Producto();
+        marcas marc = new marcas();
         String Mensaje = "";
-        for (Object f : Marcas) {
-            Mensaje = Mensaje + f + "\n";
-        }
-        String MarcaBuscada = JOptionPane.showInputDialog("Lista de Marcas: \n" + Mensaje + "\nDigite la marca de la lista que quiere buscar:");
-        Iterator<marcas> itListaProductos = ListaProductos.iterator();
         boolean validar = false;
+        Iterator<marcas> itmarca = ListMarcas.iterator();
+        Iterator<Producto> itproducto = ListaProductos.iterator();
 
-        while (itListaProductos.hasNext() && validar == false) {
-            marcas productos = itListaProductos.next();
-            if (productos.getNombre().equals(MarcaBuscada)) {
-                JOptionPane.showMessageDialog(null, "La Marca Coincide:");
+        while (itmarca.hasNext() && validar == false) {
+            marc = itmarca.next();
+            if (marc.getNombre().equals(MarcaBuscada)) {
                 validar = true;
             }
         }
-        if (validar == false) {
-            JOptionPane.showMessageDialog(null, "Marca no encontrada, intetelo de nuevo");
-        } else {
-            String ListaProdMarcas = "";
-            Iterator<marcas> itListaMarcas = ListaProductos.iterator();
-            while (itListaMarcas.hasNext()) {
-                marcas prod = itListaMarcas.next();
-                if (prod.getNombre().equals(MarcaBuscada)) {
-                    ListaProdMarcas = ListaProdMarcas + prod.toString() + "\n";
+        if(validar == false){
+            Mensaje = "La Marca NO fue encontrada.";
+        }else{
+            while(itproducto.hasNext()){
+                prod = itproducto.next();
+                if(prod.getNomMarca().equals(MarcaBuscada)){
+                    Mensaje = Mensaje + prod.toString()+"\n";
                 }
             }
-            JOptionPane.showMessageDialog(null, "Lista  de Productos Filtrada por Marca " + MarcaBuscada + "\n" + ListaProdMarcas);
         }
+        return Mensaje;
     }
 
-    public void MostrarNoPerecederos(ArrayList ListaProductos) {
+    public String MostrarNoPerecederos(ArrayList ListaProductos) {
         String ListaNoPerecederos = "";
         Iterator<Producto> itNoPerecederos = ListaProductos.iterator();
         while (itNoPerecederos.hasNext()) {
@@ -128,10 +127,10 @@ public class Listas {
                 ListaNoPerecederos = ListaNoPerecederos + NoP.toString() + "\n";
             }
         }
-        JOptionPane.showMessageDialog(null, "Lista  de Productos Filtrada por No Perecederos" + "\n" + ListaNoPerecederos);
+        return ListaNoPerecederos;
     }
 
-    public void MostrarPerecederos(ArrayList ListaProductos) {
+    public String MostrarPerecederos(ArrayList ListaProductos) {
         String ListaPerecederos = "";
         Iterator<Producto> itPerecederos = ListaProductos.iterator();
         while (itPerecederos.hasNext()) {
@@ -140,7 +139,7 @@ public class Listas {
                 ListaPerecederos = ListaPerecederos + NoP.toString() + "\n";
             }
         }
-        JOptionPane.showMessageDialog(null, "Lista  de Productos Filtrada por Perecederos" + "\n" + ListaPerecederos);
+        return ListaPerecederos;
     }
 
     public void EliminarMarca(ArrayList Marcas, String MarcaBuscada) {

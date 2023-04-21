@@ -49,8 +49,8 @@ public class frm_SubmenuBuscar_Categoria extends javax.swing.JFrame {
         Buscar_Categoria = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        txt_mostrarCategoria = new javax.swing.JTextPane();
-        ctbnCategoria = new javax.swing.JComboBox<>();
+        txta_mostrarCategoria = new javax.swing.JTextPane();
+        cbtnCategoria = new javax.swing.JComboBox<>();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -67,11 +67,6 @@ public class frm_SubmenuBuscar_Categoria extends javax.swing.JFrame {
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Buscar por categoría:");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         Volver_MenuBuscar.setBackground(new java.awt.Color(102, 102, 102));
         Volver_MenuBuscar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -100,10 +95,10 @@ public class frm_SubmenuBuscar_Categoria extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
 
-        txt_mostrarCategoria.setEditable(false);
-        jScrollPane4.setViewportView(txt_mostrarCategoria);
+        txta_mostrarCategoria.setEditable(false);
+        jScrollPane4.setViewportView(txta_mostrarCategoria);
 
-        ctbnCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No Perecederos", "Perecederos" }));
+        cbtnCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No Perecederos", "Perecederos" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,7 +109,6 @@ public class frm_SubmenuBuscar_Categoria extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel4))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(483, 483, 483)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -123,14 +117,15 @@ public class frm_SubmenuBuscar_Categoria extends javax.swing.JFrame {
                         .addComponent(Volver_MenuBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ctbnCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Buscar_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbtnCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Buscar_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
@@ -145,7 +140,7 @@ public class frm_SubmenuBuscar_Categoria extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Buscar_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ctbnCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbtnCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,23 +157,17 @@ public class frm_SubmenuBuscar_Categoria extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void Volver_MenuBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Volver_MenuBuscarActionPerformed
         // TODO add your handling code here:
@@ -188,13 +177,21 @@ public class frm_SubmenuBuscar_Categoria extends javax.swing.JFrame {
 
     private void Buscar_CategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar_CategoriaActionPerformed
         // TODO add your handling code here:
+        Listas l = new Listas();
+        String categoria = cbtnCategoria.getSelectedItem().toString();
+        if(categoria.equals("No Perecederos")){
+            txta_mostrarCategoria.setText(l.MostrarNoPerecederos(listaProductos));
+        }else if(categoria.equals("Perecederos")){
+            txta_mostrarCategoria.setText(l.MostrarPerecederos(listaProductos));
+        }
+        
     }//GEN-LAST:event_Buscar_CategoriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar_Categoria;
     private javax.swing.JButton Volver_MenuBuscar;
-    private javax.swing.JComboBox<String> ctbnCategoria;
+    private javax.swing.JComboBox<String> cbtnCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
@@ -204,6 +201,6 @@ public class frm_SubmenuBuscar_Categoria extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextPane txt_mostrarCategoria;
+    private javax.swing.JTextPane txta_mostrarCategoria;
     // End of variables declaration//GEN-END:variables
 }

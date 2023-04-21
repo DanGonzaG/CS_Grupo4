@@ -47,7 +47,7 @@ public class frm_SubmenuBuscar_IdProducto extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         Buscar_IdProducto = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        txt_mostrarIdProducto = new javax.swing.JTextPane();
+        txtA_mostrarIdProducto = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtIDproducto = new javax.swing.JTextPane();
 
@@ -62,11 +62,6 @@ public class frm_SubmenuBuscar_IdProducto extends javax.swing.JFrame {
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Buscar por ID producto:");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         Volver_MenuBuscar.setBackground(new java.awt.Color(102, 102, 102));
         Volver_MenuBuscar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -92,8 +87,8 @@ public class frm_SubmenuBuscar_IdProducto extends javax.swing.JFrame {
             }
         });
 
-        txt_mostrarIdProducto.setEditable(false);
-        jScrollPane4.setViewportView(txt_mostrarIdProducto);
+        txtA_mostrarIdProducto.setEditable(false);
+        jScrollPane4.setViewportView(txtA_mostrarIdProducto);
 
         jScrollPane2.setViewportView(txtIDproducto);
 
@@ -108,18 +103,18 @@ public class frm_SubmenuBuscar_IdProducto extends javax.swing.JFrame {
                         .addComponent(jLabel4))
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Volver_MenuBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane4)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Buscar_IdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Buscar_IdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Volver_MenuBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
@@ -137,8 +132,8 @@ public class frm_SubmenuBuscar_IdProducto extends javax.swing.JFrame {
                                 .addComponent(Buscar_IdProducto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
                         .addComponent(Volver_MenuBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
@@ -165,10 +160,6 @@ public class frm_SubmenuBuscar_IdProducto extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void Volver_MenuBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Volver_MenuBuscarActionPerformed
         // TODO add your handling code here:
         frm_MenuBuscar MBusc = new frm_MenuBuscar(listaProductos,listaM);
@@ -177,6 +168,8 @@ public class frm_SubmenuBuscar_IdProducto extends javax.swing.JFrame {
 
     private void Buscar_IdProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar_IdProductoActionPerformed
         // TODO add your handling code here:
+        Listas l = new Listas();
+        txtA_mostrarIdProducto.setText(l.BuscarID(listaProductos, Integer.parseInt(txtIDproducto.getText())));
     }//GEN-LAST:event_Buscar_IdProductoActionPerformed
 
 
@@ -190,7 +183,7 @@ public class frm_SubmenuBuscar_IdProducto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextPane txtA_mostrarIdProducto;
     private javax.swing.JTextPane txtIDproducto;
-    private javax.swing.JTextPane txt_mostrarIdProducto;
     // End of variables declaration//GEN-END:variables
 }

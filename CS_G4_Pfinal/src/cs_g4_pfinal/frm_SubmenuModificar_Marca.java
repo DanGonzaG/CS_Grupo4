@@ -27,6 +27,11 @@ public class frm_SubmenuModificar_Marca extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        
+        for (int i = 0; i < listaM.size(); i++) {
+            cbtnMarcas.addItem(listaM.get(i).getNombre());
+            
+        }
     }
 
     /**
@@ -64,11 +69,6 @@ public class frm_SubmenuModificar_Marca extends javax.swing.JFrame {
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Modificar Marca:");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         Volver_MenuModificar.setBackground(new java.awt.Color(102, 102, 102));
         Volver_MenuModificar.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
@@ -197,10 +197,6 @@ public class frm_SubmenuModificar_Marca extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void Volver_MenuModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Volver_MenuModificarActionPerformed
         // TODO add your handling code here:
         frm_MenuModificar MMod = new frm_MenuModificar(listaProductos,listaM);
@@ -210,11 +206,13 @@ public class frm_SubmenuModificar_Marca extends javax.swing.JFrame {
     private void Modificar_MarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Modificar_MarcaActionPerformed
         //MarcadeProducto m = new MarcadeProducto();
         marcas m = new marcas();
-        
         Producto p = new Producto();
         Listas l = new Listas();
-        //public void modificarMarca2(String letraVieja, String letraNueva, MarcadeProducto m, ArrayList<MarcadeProducto> listaM, Producto p, ArrayList<Producto> listaP) {
-       // l.modificarMarca(txt_BuscarMarca_Modificar.getText(), txt_NombreNuevo_Marca.getText(), m, listaM, p, listaProductos);
+        
+        
+        String MarcaModificar =   cbtnMarcas.getSelectedItem().toString();
+        l.modificarMarca2(MarcaModificar, txt_NombreNuevo_Marca.getText(), m, listaM, p, listaProductos);
+        txaProductos.setText(l.MostrarListaProductosTXTA(listaProductos));
     }//GEN-LAST:event_Modificar_MarcaActionPerformed
 
     private void cbtnMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtnMarcasActionPerformed

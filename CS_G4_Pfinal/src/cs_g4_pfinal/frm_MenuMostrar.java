@@ -85,11 +85,6 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
         btnMostrar_Inventario.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         btnMostrar_Inventario.setForeground(new java.awt.Color(255, 255, 255));
         btnMostrar_Inventario.setText("Mostrar Inventario");
-        btnMostrar_Inventario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrar_InventarioActionPerformed(evt);
-            }
-        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/6.png"))); // NOI18N
 
@@ -97,11 +92,6 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
         btnMostrar_Marcas.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         btnMostrar_Marcas.setForeground(new java.awt.Color(255, 255, 255));
         btnMostrar_Marcas.setText("Mostrar Marcas");
-        btnMostrar_Marcas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrar_MarcasActionPerformed(evt);
-            }
-        });
 
         txta_MostrarMarc.setEditable(false);
         jScrollPane4.setViewportView(txta_MostrarMarc);
@@ -190,19 +180,6 @@ public class frm_MenuMostrar extends javax.swing.JFrame {
         frm_MenuPrincipal prin = new frm_MenuPrincipal(listaProductos,listaM);
         this.setVisible(false);
     }//GEN-LAST:event_btnVolver_MenuPrincipalActionPerformed
-
-    private void btnMostrar_InventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_InventarioActionPerformed
-        Listas l = new Listas();
-        l.MostrarListaProductos(listaProductos);
-                
-
-    }//GEN-LAST:event_btnMostrar_InventarioActionPerformed
-
-    private void btnMostrar_MarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrar_MarcasActionPerformed
-        // TODO add your handling code here:
-        Listas l = new Listas();
-        l.MostrarListaMarcas(listaM);
-    }//GEN-LAST:event_btnMostrar_MarcasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

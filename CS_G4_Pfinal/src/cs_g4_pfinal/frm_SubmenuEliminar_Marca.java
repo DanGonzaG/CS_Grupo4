@@ -27,6 +27,11 @@ public class frm_SubmenuEliminar_Marca extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        
+        for (int i = 0; i < listaM.size(); i++) {
+            cbtnMarcas.addItem(listaM.get(i).getNombre());
+            
+        }
     }
 
     /**
@@ -61,11 +66,6 @@ public class frm_SubmenuEliminar_Marca extends javax.swing.JFrame {
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("Eliminar Marca:");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,13 +98,7 @@ public class frm_SubmenuEliminar_Marca extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Lista de todos los productos registrados:");
-
-        cbtnMarcas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbtnMarcasActionPerformed(evt);
-            }
-        });
+        jLabel9.setText("Lista de todas las marcas registrados:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -181,10 +175,6 @@ public class frm_SubmenuEliminar_Marca extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void Volver_MenuEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Volver_MenuEliminarActionPerformed
         // TODO add your handling code here:
         frm_MenuEliminar MElim = new frm_MenuEliminar(listaProductos,listaM);
@@ -193,11 +183,12 @@ public class frm_SubmenuEliminar_Marca extends javax.swing.JFrame {
 
     private void Eliminar_MarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Eliminar_MarcaActionPerformed
         // TODO add your handling code here:
+        Listas l = new Listas();
+        String Marcabuscada = cbtnMarcas.getSelectedItem().toString();
+        l.EliminarMarca(listaM, Marcabuscada);
+        txaProductos.setText(l.MostrarListaMarcasTXA(listaM));
+        
     }//GEN-LAST:event_Eliminar_MarcaActionPerformed
-
-    private void cbtnMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtnMarcasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbtnMarcasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

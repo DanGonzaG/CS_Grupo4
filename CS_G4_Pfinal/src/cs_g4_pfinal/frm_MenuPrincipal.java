@@ -79,11 +79,6 @@ ArrayList<marcas> listaM;
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Menú Principal");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         Modificar.setBackground(new java.awt.Color(204, 153, 0));
         Modificar.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
@@ -193,6 +188,7 @@ ArrayList<marcas> listaM;
     private void salir_programaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salir_programaActionPerformed
         
         this.dispose();
+        System.exit(0);
     }//GEN-LAST:event_salir_programaActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
@@ -206,10 +202,6 @@ ArrayList<marcas> listaM;
         frm_MenuEliminar elim = new frm_MenuEliminar(listaProductos,listaM);
          this.setVisible(false);
     }//GEN-LAST:event_EliminarActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
         // TODO add your handling code here:
