@@ -12,6 +12,15 @@ public class Listas {
         marcas.add(m);
     }
 
+    public String MostrarListaMarcasTXA(ArrayList<marcas> marcas) { //creo que este no se ocupa
+        String Mensaje = "";
+        for (int i = 0; i < marcas.size(); i++) {
+            Mensaje = Mensaje + marcas.get(i).getNombre() + "\n";
+        }
+
+        return Mensaje;
+    }
+    
     public void MostrarListaMarcas(ArrayList<marcas> marcas) { //creo que este no se ocupa
         String Mensaje = "";
         for (int i = 0; i < marcas.size(); i++) {
